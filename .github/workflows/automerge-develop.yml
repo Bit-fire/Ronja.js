@@ -2,9 +2,9 @@ name: Automerge-develop
 
 on:
   workflow_dispatch:
-  schedule:
+  #schedule:
     # You can setup schedule here
-    - cron: '*/15 * * * *' # Sync every 15 minutes
+    # cron: '*/15 * * * *' # Sync every 15 minutes
 
 env:
   # replace "github_username" with your GitHub username
