@@ -28,10 +28,18 @@ jobs:
     steps:
     - name: Merge with master
       run: |
+        # Clone MY repository and check out MY branch in folder "tmp"
         git clone ${{env.MY_REPO}} -b ${{env.MY_BRANCH}} tmp
+
         cd tmp
         git config user.name "Automerge Bot"
         git config user.email "bot@example.com"
-        git config pull.rebase false
+
+        # Disable Git default behavior to rebase any local changes on top of the changes being pulled in
+        # git config pull.rebase false
+
+        # Pull changes from MASTER branch into the local copy
         git pull ${{env.MASTER_REPO}} ${{env.MASTER_BRANCH}}
+
+        # Push any changes made to the local copy of MY repository to MY remote repository
         git push
